@@ -1,7 +1,11 @@
-</div>
+
+
+
 <div id="footer"> 
-    <p>Copyright &copy; 2014 Sotiris Magionas</p>
+    <p><span class="copy-left">&copy;</span><span>&nbsp;Copyleft 2014 Sotiris Magionas</span></p>
 </div>
+
+
 
 </body>
 </html>

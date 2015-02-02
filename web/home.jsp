@@ -2,40 +2,107 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!-- make jstl expressions and connections and queries with mysql database work here -->
 
+
+
 <link href="style/style.css" rel="stylesheet" type="text/css"/>
 
-<script src="jquery-1.11.1.min.js" type="text/javascript"></script>
-<script> 
-    $( document ).ready(function() {
-            $("#ok_button").click(function(){
-                  $("#month_question").fadeOut(200); 
-                  $("#question1").fadeOut(200);
-                  $("#ok_button").fadeOut(200);
-                  $("#country_question").fadeIn(2000);           
-                  $("#question2").fadeIn(2000);
-                  $("#send_button").fadeIn(2000);           
-        });
-        
-            $("#send_button").click(function(){
-                  $("#questions").fadeOut(1200);
-            
-        });
-    });
-    
-    
-    
-    
-  
-</script>
 
+<script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+<sql:setDataSource var="ds" dataSource="jdbc/stardate" /> 
+<sql:query dataSource="${ds}" sql="select * from users" var="results" />     
+    
+  <c:if test="${param.username != NULL }">  
+      
+      <c:set var="User_exists" scope="session" value="${0}" />
+      
+            <c:forEach var="user" items="${results.rows}" varStatus="row">
+       
+                <c:if test="${user.username == param.username && user.password == sessionScope.pass}">
+                    <c:set var="email" scope="session" value="${user.email}" />
+                    <c:set var="username" scope="session" value="${user.username}" />  
+                    <c:redirect url="/home_logged_in_user.jsp" />           
+                      
+            
+                </c:if>  
+       
+                <c:if test="${user.username == param.username}">
+            
+                     <c:set var="User_exists" scope="session" value="${1}" />                      
+            
+                </c:if>         
+        
+            </c:forEach> 
+      
+            <c:redirect url="/user_not_in_DB.jsp" />  
+      
+  </c:if>
+  
 <c:import url="header.jsp">
     <c:param name="title" value="Stardate | Your dates with the universe"></c:param>
 </c:import>
 
+<div class="Today_events">
+    <c:forEach var="entry1" items="${sessionScope.dates_today}" varStatus="status"  >
+        <div class="Today_event"> 
+    
+            <div class="Today_front">
+                <h1><c:out value="Today"/></h1>
+                <strong><c:out value="${sessionScope.titles_today[status.index]}"/> </strong>
+            </div>
+    
+    
+            <div class="Today_back">
+                <strong><c:out value="${sessionScope.description_today[status.index]}"/> </strong>         
+            </div> 
+          
+        </div>
+
+    </c:forEach>
+</div>
+
+<div class="Current_month_events">
+    
+    <c:forEach var="entry" items="${sessionScope.dates}" varStatus="status" >
+        
+        <div class="Event">  
+      
+      
+      
+            <div class="Event_front">
+                 <h1> <c:out value="${entry}"/> </h1>
+                 <strong><c:out value="${sessionScope.titles[status.index]}"/> </strong>
+            </div>    
+    
+            <div class="Event_back">
+                 <strong><c:out value="${sessionScope.description[status.index]}"/> </strong> 
+                   
+            </div> 
+        
+        
+      
+        </div> 
+        
+    </c:forEach>  
+       
+</div>
+        
+        
+        
+
+        
 
 <div id="questions">
-    <form >
-        <p id="month_question"><strong> Which month are you interested in?</strong> </p>
+    <form action="ParseEvents" method="post" >
+        <h1 id="Step_1">Step 1 of 3</h1>
+        <p id="month_question"><strong> The events of which month would you like to see?</strong></p>
         <select name="month" id="question1">
             <option value="January">January</option>
             <option value="February">February</option>
@@ -50,11 +117,25 @@
             <option value="November ">November </option>
             <option value="December">December</option>
         </select>
-        <input type="button" id="ok_button" value="OK">
+        <input type="button" id="ok_button1" value="OK">
         
         
+        <h1 id="Step_2">Step 2 of 3</h1>
+        <p id="year_question"><strong> Please select the corresponding year</strong> </p> 
+        <select name="year" id="question2">            
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018 ">2018 </option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>           
+        </select>
+        <input type="button" id="ok_button2" value="OK"> 
+         
+        
+        <h1 id="Step_3">Step 3 of 3</h1>
         <p id="country_question"><strong> Please select your country</strong> </p>    
-        <select name="country" id="question2">
+        <select name="country" id="question3">
             <option value="">Country...</option>
             <option value="Afganistan">Afghanistan</option>
             <option value="Albania">Albania</option>
@@ -305,15 +386,59 @@
             <option value="Zimbabwe">Zimbabwe</option>
         </select>
         
-        <input type="button" id="send_button" value="OK">
+        <input type="submit" value="Go" id="send_button"  />
     </form>
 </div>
+
+
         
         
+        
 
 
 
+        
+<script> 
+    $( document ).ready(function() {
+            $("#ok_button1").click(function(){
+                  $("#Step_1").fadeOut(200); 
+                  $("#month_question").fadeOut(200); 
+                  $("#question1").fadeOut(200);
+                  $("#ok_button1").fadeOut(200);
+                  $("#Step_2").fadeIn(2000);
+                  $("#year_question").fadeIn(2000);           
+                  $("#question2").fadeIn(2000);
+                  $("#ok_button2").fadeIn(2000);           
+        });
+            $("#ok_button2").click(function(){
+                  $("#Step_2").fadeOut(200); 
+                  $("#year_question").fadeOut(200); 
+                  $("#question2").fadeOut(200);
+                  $("#ok_button2").fadeOut(200);
+                  $("#Step_3").fadeIn(2000);
+                  $("#country_question").fadeIn(2000);           
+                  $("#question3").fadeIn(2000);
+                  $("#send_button").fadeIn(2000);           
+        });        
+            $("#send_button").click(function(){
+                  $("#questions").fadeOut(1200);            
+        });
+    });
+    
+    
+    
+    
+  
+</script>
 
+</div>
 
 
 <c:import url="footer.jsp"></c:import>
+
+
+
+
+
+
+

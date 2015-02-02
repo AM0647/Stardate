@@ -3,10 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/About_logged_in_user.jsp</file>
             <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/footer.jsp</file>
-            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/style/style.css</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/Config.java</file>
             <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/header.jsp</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/error.jsp</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/user_not_in_DB.jsp</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/PopulateEventDB.java</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/ParseEvents.java</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/ParseEvents_logged_in_user.java</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/CheckDB.java</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/KillSession.java</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/About.jsp</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/home_logged_in_user.jsp</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/style/style.css</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/Contact.jsp</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/header_logged_in_user.jsp</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/UnPopulateDB.java</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/sign_up_duplicate.jsp</file>
             <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/web/home.jsp</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/PopulateDB.java</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/UpdateCounts.java</file>
+            <file>file:/C:/Users/sotiris/Documents/NetBeansProjects/StarDate/src/java/Second.java</file>
         </group>
     </open-files>
 </project-private>

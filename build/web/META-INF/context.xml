@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/StarDate"/>
+<Context antiJARLocking="true" path="/StarDate">
+    <Resource name="jdbc/stardate" auth="Container" type="javax.sql.DataSource"
+               maxActive="100" maxIdle="30" maxWait="10000"
+               username="stardate_admin" password="star9DATE%" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/stardate"/>
+</Context>

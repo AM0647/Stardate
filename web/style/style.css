@@ -1,96 +1,274 @@
-html{
-   background-image: url('images/OrionNebula.jpg');
-   overflow-x: hidden;
-   //overflow-y: hidden;
-   background-size: cover;
-   background-repeat: no-repeat;
+html{   
    position:relative;
    width:100%;
    height:100%;
-}
+   }
 
 body { 
+        background-image: url('images/OrionNebula.jpg');
+        overflow-x: hidden;       
+        background-size: cover;
+        background-repeat: no-repeat;
 	text-align: center; 
         height:100%;
         width:100%;
+        position: absolute;    //edo prosoxh
+        top:-8px;
+        left:0px;
 }
 
 .content {  
-	top: 20px;
+	top: -20px;
 	position: relative;
-	width: 100%; 
-	height: 100%; 
+	width: auto; 
+	height: auto; 
 	background: transparent; 
 	padding: 0px; 
 	margin: 0 auto; 
-	align: center;
+	//align: center;
 }
+
+.exception_content {  
+	top: 50%;
+        left:50%;
+	position: absolute;
+	width: 40%; 
+	height: auto;
+        transform: translate(-50%,-50%);
+	background: transparent; 
+	padding: 0px; 
+	margin: 0 auto; 
+	//align: center;
+}
+
 
 #footer {
 	position: absolute;
-	width: 100%;	
-	text-align: center;
-	border-top: 3px solid gray;
-	height: 70px;
-        margin-top: 21px;
-	margin-left: -8px;
-	font-size: 20px;
-	color: gray;
         background-color:black;
-        //opacity:0.5;
+        border-top: 3px solid gray;
+        width: 100%;
+        height: 90px;
+        //bottom:-200px;
+	left: -8px;  
+        top:100%;
+	text-align: center;
+	color: gray;
+        font-size: 20px;
+}
+
+.copy-left {
+display: inline-block;
+text-align: right;
+margin: 0;
+-moz-transform: scaleX(-1);
+-o-transform: scaleX(-1);
+-webkit-transform: scaleX(-1);
+transform: scaleX(-1);
+filter: FlipH;
+-ms-filter: "FlipH";
+} 
+
+.today_events{
+   position:absolute;
+   width:1200px;
+   height:200px;
+   top: 80px;     
+   left:25%;
+   
+ 
 }
 
 
- 
-#questions{
-    position:absolute;
+.Today_event{
+    //position:absolute;
     width:300px;
     height:150px;
-    opacity:0.75;
-    margin-top: 200px;     //tsapatsoulia
-    margin-left:0;
+    opacity:0.65;        
+    perspective: 500px;
+    display: inline-block;
+    margin-right: 3.5em;    
+    margin-bottom: 3em;
+}
+
+.Today_front,
+.Today_back{
+	/* Enable 3D transforms */
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+
+	/* We are using two separate divs for the front and back of the
+	   phone. This will hide the divs when they are flipped, so that the
+	   opposite side can be seen:  */
+
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	
+	/* Animate the transitions */
+	transition:1.2s;
+        position:absolute;
+        width:300px;
+        height:150px;
+        padding: 20px;
+        background: #005f5f;
+        border: 2px solid #444444;
+
+        border-radius: 30px 30px 30px 30px;
+        -moz-border-radius: 30px 30px 30px 30px;
+        -webkit-border-radius: 30px 30px 30px 30px;
+        }
+ 
+.Today_back{
+	/* The back side is flipped 180 deg by default */
+	transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+        overflow-x: hidden;
+	background-position:right center;       
+}
+
+.Today_event:hover .Today_front{
+	/* When the container is hovered, flip the front side and hide it .. */
+	transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+}
+
+.Today_event:hover .Today_back{
+	/* .. at the same time flip the back side into visibility */
+	transform:rotateY(360deg);
+	-webkit-transform:rotateY(360deg);
+}
+
+.Current_month_events{
+   position:absolute;
+   width:auto;
+   height:auto;
+   top: 310px;     
+   left:0;
+   
+}
+
+.Event{    
+    width:200px;
+    height:130px;
+    opacity:0.65;    
+    perspective: 500px;
+    display: inline-block;
+    margin-right: 3.5em;    
+    margin-bottom: 3em;
+    
+    
+}
+
+.Event_front,
+.Event_back{
+	/* Enable 3D transforms */
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+
+	/* We are using two separate divs for the front and back of the
+	   phone. This will hide the divs when they are flipped, so that the
+	   opposite side can be seen:  */
+        
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	
+	/* Animate the transitions */
+	transition:1.2s;
+        position:absolute;
+        width:200px;
+        height:130px;
+        padding: 20px;
+        background: #005f5f;
+        
+        border: 2px solid #444444;
+        border-radius: 30px 30px 30px 30px;
+        -moz-border-radius: 30px 30px 30px 30px;
+        -webkit-border-radius: 30px 30px 30px 30px;
+        }
+        
+.Event_back{
+	/* The back side is flipped 180 deg by default */
+	transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+        
+	background-position:right center;
+        overflow-x: hidden;
+}
+
+.Event:hover .Event_front{
+	/* When the container is hovered, flip the front side and hide it .. */
+	transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+}
+
+.Event:hover .Event_back{
+	/* .. at the same time flip the back side into visibility */
+	transform:rotateY(360deg);
+	-webkit-transform:rotateY(360deg);
+}
+
+#questions{
+    position:absolute;
+    width:auto;
+    height:auto;
+    opacity:0.70;
+    top: 100px;     
+    left:40px;
     padding: 20px;
     background: #005f5f;
-    border: 2px solid #444444;
+    border: 2px solid #444444;    
 
     border-radius: 60px 20px 60px 20px;
     -moz-border-radius: 60px 20px 60px 20px;
     -webkit-border-radius: 60px 20px 60px 20px;
 }
+
+#Step_1{
+   font-family: 'Oswald', sans-serif;
+  
+}
+
+#Step_2{
+   font-family: 'Oswald', sans-serif;
+   display:none;
+}
+
+#Step_3{
+   font-family: 'Oswald', sans-serif;
+   display:none;
+}
     
 #month_question{
   font-family: 'Oswald', sans-serif;
+  font-size: 1em;      
+}
+
+#year_question{
+  font-family: 'Oswald', sans-serif;
   font-size: 1em;  
-    
+  display:none;  
 }
 
 #country_question{
   font-family: 'Oswald', sans-serif;
   font-size: 1em;  
-    
+  display:none  
 }
-  
-
 
 #question2{
       display:none;
 }
 
+#question3{
+    display:none;    
+}
+
+#ok_button2{
+    display:none;    
+}
+
 #send_button{
       display:none;
 }
-
-#country_question{
-      display:none;    
-}
-  
-//.nav{
- //   margin-top: -10px;
-//    margin-left:-10px;
-//    position:absolute;
- //   width:100%;
-//    opacity:0.75;
-//}
 
 .nav ul {
   list-style: none;
@@ -99,8 +277,6 @@ body {
   padding: 0;
   margin-top: -8px;
   margin-left: -8px;
-  //margin-top: -10px;
-  //width:100%;
   opacity:0.75;
 }
 
@@ -109,16 +285,14 @@ body {
   font-size: 1.2em;
   line-height: 40px;
   height: 40px;
-  border-bottom: 1px solid #888;
-  //margin-left: 0px;
+  border-bottom: 1px solid #888;  
 }
  
 .nav a {
   text-decoration: none;
   color: #fff;
   display: block;
-  transition: 1s background-color;
-  
+  transition: 1s background-color;  
 }
  
 .nav a:hover {
@@ -140,13 +314,315 @@ body {
     font-size: 1.4em;
   }
  }
+ 
 .nav li {
     display: inline-block;
     margin-right: -4px;
 }
   
-.nav li.Login{
-      position:absolute;
-      right: .5%;      
+.nav li.Sign_up{
+     float:right;
 }
 
+.nav li.Login{
+     float:right;
+}
+
+.nav li.Sign_out{
+     float:right;
+}
+
+
+.nav li.logged_in_user{
+float:left;    
+color:white; 
+width:auto;
+margin-left:10px;
+} 
+
+.Sign_up_form{
+  position:relative;
+  width:300px;
+  height:250px;
+  opacity:0.65;
+  top: 0px;     
+  float:right;      
+  padding: 20px;
+  background: #005f5f;
+  border: 2px solid #444444;
+
+  border-radius: 20px 20px 20px 20px;
+  -moz-border-radius: 20px 20px 20px 20px;
+  -webkit-border-radius: 20px 20px 20px 20px;      
+   display:none; 
+}
+
+#form_fields{
+border-bottom: 1px solid #efefef;
+margin: 10px;
+padding-bottom: 10px;
+width: 260px;
+}
+
+.title {
+float: left;
+width: 50px;
+text-align: right;
+padding-right: 10px;
+}
+
+input#username{
+    background:url('images/User-icon.png') no-repeat ;
+    background-position: left;   
+    padding-left:24px;      
+    background-color:#FFFFFF;      
+}
+
+input#email{
+    background:url('images/Email-01.png') no-repeat ;
+    background-position: left;    
+    background-color:#FFFFFF;   
+    padding-left:24px;
+}
+
+input#password{
+    background:url('images/keys.png') no-repeat ;
+    background-position: left;   
+    background-color:#FFFFFF;       
+    padding-left:24px;
+}
+
+.submit {
+float: right;
+}
+
+.Login_form{
+  position:relative;
+  width:300px;
+  height:250px;
+  opacity:0.65;
+  top: 0px;     
+  float:right;      
+  padding: 20px;
+  background: #005f5f;
+  border: 2px solid #444444;
+
+  border-radius: 20px 20px 20px 20px;
+  -moz-border-radius: 20px 20px 20px 20px;
+  -webkit-border-radius: 20px 20px 20px 20px;      
+   display:none; 
+}
+
+#About_contents{
+   position:absolute;
+   width:auto;
+   height:auto;
+   top: 710px;     
+   left:0;
+   
+    
+}
+
+#About_content{
+    //position:absolute;
+    display: inline-block;
+    margin-right: 3.5em;    
+    margin-bottom: 1em;
+    
+    width:40%;
+    height:auto;
+    //top: 50%;
+    //left: 50%;
+    //transform: translate(-50%, -50%);
+    opacity:0.70;
+    //top: 10%;     
+    //left:40%;
+    //margin: 0 auto 0 auto;
+    //float:right;
+    padding: 5px;
+    background: #005f5f;
+    border: 2px solid #444444; 
+    text-align: left;
+
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;  
+    
+    
+    
+}
+
+
+
+#contact_content{
+    position:absolute;
+    width:auto;
+    height:auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity:0.70;
+    //top: 10%;     
+    //left:40%;
+    margin: 0 auto 0 auto;
+    //float:right;
+    padding: 20px;
+    background: #005f5f;
+    border: 2px solid #444444; 
+    text-align: center;
+
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;  
+    
+    
+    
+}
+
+#Duplicate{
+    
+    position:absolute;
+    width:auto;
+    height:auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity:0.70;    
+    padding: 20px;
+    background: #005f5f;
+    border: 2px solid #444444; 
+    text-align: center;
+
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;  
+    
+    
+    
+    
+    
+}
+
+#button{
+    
+    width:80px;
+    height:auto;
+    float:right;
+    opacity:0.70;    
+    padding: 5px;
+    background: white;
+    border: 2px solid #444444; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;  
+    
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.Sign_out_form{
+  position:relative;
+  width:auto;
+  height:auto;
+  opacity:0.65;
+  top: 0px;     
+  float:right;      
+  padding: 20px;
+  background: #005f5f;
+  border: 2px solid #444444;
+  text-decoration: none;
+  border-radius: 20px 20px 20px 20px;
+  -moz-border-radius: 20px 20px 20px 20px;
+  -webkit-border-radius: 20px 20px 20px 20px;      
+   display:none; 
+}
+
+.sign_out_button{
+    position:absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    opacity:0.70;    
+    padding: 7px;
+    background: white;
+    border: 2px solid #444444; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px; 
+    
+}
+
+.delete_account_button{
+    position:absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    opacity:0.70;    
+    padding: 5px;
+    background: white;
+    border: 2px solid #444444; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px; 
+}
+
+
+#social_accounts{
+    position:absolute;
+     opacity:0.85;   
+    //display: inline-block;
+    margin-bottom: 3.5em;    
+    top:50%;
+    left: 100%;
+    transform: translate(-110%,-50%);
+    
+    
+}
+
+
+#social_account{
+    
+    margin-bottom: 1.5em;   
+    
+    
+    
+
+}
+
+
+
+
+#error_content{
+    position:relative;
+    width:auto;
+    height:auto;
+    top: 50%;
+    left: 0%;
+    //transform: translate(-50%, -50%);
+    opacity:0.70;
+    //top: 10%;     
+    //left:40%;
+    margin: 0 auto 0 auto;
+    //float:right;
+    //padding: 20px;
+    
+   
+    text-align: center;
+
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;  
+    
+    
+    
+}
